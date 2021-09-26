@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ProductConsumer } from '../context';
 import { Link } from 'react-router-dom';
 import Sound from './Sound';
 
-export default class Details extends Component {
 
-    render() {
-        return (
-            <ProductConsumer>
+
+const Details = () => {
+    return (
+        <ProductConsumer>
                 {value => {
                     const { profileImage, price, title, sounds } = value.detail;
                     console.log(value.detail);
@@ -45,7 +45,8 @@ export default class Details extends Component {
                     }
                 }}
             </ProductConsumer>
-        )
-    }
-
+    )
 }
+
+export default Details
+

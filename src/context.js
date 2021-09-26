@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { packs, detail } from './data';
+import { packs } from './data';
 const ProductContext = React.createContext();
 
 
 
 class ProductProvider extends Component {
     state = {
-        products:packs,
-        detail:[]
+        products: packs,
+        detail: []
     };
 
 
-    getItem = (id) =>{
+    getItem = (id) => {
         const product = this.state.products.find(item => item.id === id);
         return product;
     }
@@ -19,8 +19,8 @@ class ProductProvider extends Component {
     handleDetail = (id) => {
         const product = this.getItem(id);
         console.log(product);
-        this.setState(()=>{
-            return{detail:product}
+        this.setState(() => {
+            return { detail: product }
         });
     }
 
@@ -28,8 +28,9 @@ class ProductProvider extends Component {
         return (
             <ProductContext.Provider value={{
                 ...this.state,
-                handleDetail: this.handleDetail}
-                }>
+                handleDetail: this.handleDetail
+            }
+            }>
                 {this.props.children}
             </ProductContext.Provider>
         )
@@ -38,5 +39,5 @@ class ProductProvider extends Component {
 
 const ProductConsumer = ProductContext.Consumer;
 
-export {ProductProvider, ProductConsumer}
+export { ProductProvider, ProductConsumer }
 

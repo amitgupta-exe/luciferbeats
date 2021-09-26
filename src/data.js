@@ -90,35 +90,3 @@ export const packs = [
         }]
     }
 ];
-
-
-export const detail = {
-        id:null,
-        title: null,
-        noOfSounds: null,
-        price: null,
-        profileImage:null,
-        inCart: null,
-        count: null,
-        total: null,
-        sounds: [{
-            name: null,
-            source: null
-        },
-        {
-            name: null,
-            source: null
-        },
-        {
-            name: null,
-            source: null
-        },
-        {
-            name: null,
-            source: null
-        },
-        {
-            name: null,
-            source: null
-        }]
-    }

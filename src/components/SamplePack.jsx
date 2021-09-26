@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProductConsumer } from '../context';
 
 
-export default class SamplePack extends Component {
-    render() {
-        const { id, title, profileImage, noOfSounds, price } = this.props.product;
-        return (
-            <ProductConsumer>
+const SamplePack = ({product}) => {
+    const { id, title, profileImage, noOfSounds, price } = product;
+
+    return (
+        
+        <ProductConsumer>
                 {(value) => (
                     <Link to="/details">
                         <div onClick={() => value.handleDetail(id)} className="bg-info text-dark ">
@@ -20,7 +21,8 @@ export default class SamplePack extends Component {
                 )}
 
             </ProductConsumer>
-        )
-    }
+    )
 }
+
+export default SamplePack
 
