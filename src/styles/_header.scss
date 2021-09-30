@@ -1,0 +1,13 @@
+header{
+    @include flex(space-between, row);
+    padding: 0 6vw;
+    width: 100vw;
+    height: 10vh;
+    position: fixed;
+    color: white;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+

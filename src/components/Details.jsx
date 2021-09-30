@@ -6,9 +6,11 @@ import Sound from './Sound';
 
 
 const Details = () => {
-    const {detail} = useContext(ProductContext);
+    const {detail, slide} = useContext(ProductContext);
 
     const { profileImage, price, title, sounds } = detail;
+
+    const {backgroundPhoto} = slide;
 
     if (detail.length === 0) {
         return (
@@ -23,9 +25,10 @@ const Details = () => {
     } else {
         return (
 
-            <div className="container py-5">
-                <div className="row">
-                    <div className="col-10 mx-auto text-center text-blue">
+            <div className="">
+                <div className="">
+                    <img src={backgroundPhoto} alt="" />
+                    <div className="">
                         <h1>{title}</h1>
                         <img src={profileImage} alt="" />
                         <p>{price}</p>
