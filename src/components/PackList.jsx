@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SamplePack from './SamplePack';
 
-import { ProductConsumer } from '../context';
+import { ProductContext } from '../context';
 
 
 const PackList = () => {
+
+    const {packs,
+        setPackss,
+        detail,
+        setDetail,
+        handleDetail} = useContext(ProductContext);
+
+        console.log(packs);
+
     return (
         <div className="py-5">
             <div className=" d-inline-flex container">
-                <ProductConsumer>
-                    {value => {
-                        return value.products.map(product => {
+                       {packs.map(product => {
                             return <SamplePack key={product.id} product={product} />
-                        })
-                    }}
-                </ProductConsumer>
+                        })}
+ 
             </div>
         </div>
     )
