@@ -4,11 +4,7 @@ import { ProductContext } from '../context';
 
 
 const SamplePack = ({ product }) => {
-    const { packs,
-        setPackss,
-        detail,
-        setDetail,
-        handleDetail } = useContext(ProductContext);
+    const {handleDetail} = useContext(ProductContext);
 
     const { id, title, profileImage, noOfSounds, price } = product;
 

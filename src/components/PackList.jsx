@@ -1,21 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SamplePack from './SamplePack';
 
-import { ProductContext } from '../context';
 
+const PackList = ({data}) => {
 
-const PackList = () => {
+const {slideNo, slideTitle, totalPrice, packs} = data;
 
-    const {packs,
-        setPackss,
-        detail,
-        setDetail,
-        handleDetail} = useContext(ProductContext);
+console.log(data);
 
-        console.log(packs);
 
     return (
         <div className="py-5">
+            <h1>{slideTitle}</h1>
+            <h3>{slideNo}</h3>
+            <p>{totalPrice}</p>
             <div className=" d-inline-flex container">
                        {packs.map(product => {
                             return <SamplePack key={product.id} product={product} />

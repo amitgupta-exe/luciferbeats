@@ -6,15 +6,9 @@ import Sound from './Sound';
 
 
 const Details = () => {
-    const {packs,
-        setPackss,
-        detail,
-        setDetail,
-        handleDetail} = useContext(ProductContext);
+    const {detail} = useContext(ProductContext);
 
     const { profileImage, price, title, sounds } = detail;
-
-    console.log(detail);
 
     if (detail.length === 0) {
         return (
