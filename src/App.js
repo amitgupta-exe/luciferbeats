@@ -7,11 +7,10 @@ import PageNotFound from './components/PageNotFound'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-          <div>
+
+const App = () => {
+  return (
+    <div>
             <Switch>
               <Route exact path="/" component={PackList} />
               <Route path="/details" component={Details} />
@@ -19,7 +18,9 @@ export default class App extends React.Component {
               <Route  component={PageNotFound} />
             </Switch>
           </div>
-      </React.Fragment>
-    )
-  }
+  )
 }
+
+export default App
+
+

@@ -1,42 +1,39 @@
-import React, { Component } from 'react';
-import { packs, detail } from './data';
-const ProductContext = React.createContext();
+import React, {useState, createContext } from 'react';
+import { packs } from './data';
 
 
+export const ProductContext = createContext();
 
-class ProductProvider extends Component {
-    state = {
-        products:packs,
-        detail:[]
-    };
+export const ProductProvider = (props) => {
+    
+    const [packss, setPackss] = useState(packs);
+
+    const [detail, setDetail] = useState([]);
 
 
-    getItem = (id) =>{
-        const product = this.state.products.find(item => item.id === id);
+    const getItem = (id) => {
+        const product = packs.find(item => item.id === id);
         return product;
-    }
+    } 
 
-    handleDetail = (id) => {
-        const product = this.getItem(id);
+    const handleDetail = (id) => {
+        console.log(id);
+        const product = getItem(id);
         console.log(product);
-        this.setState(()=>{
-            return{detail:product}
-        });
+        setDetail(product);
     }
 
-    render() {
+    const ProviderValue = {
+        packs,
+        setPackss,
+        detail,
+        setDetail,
+        handleDetail
+    } 
         return (
-            <ProductContext.Provider value={{
-                ...this.state,
-                handleDetail: this.handleDetail}
-                }>
-                {this.props.children}
+            <ProductContext.Provider value={ProviderValue}>
+                {props.children}
             </ProductContext.Provider>
         )
-    }
+    
 }
-
-const ProductConsumer = ProductContext.Consumer;
-
-export {ProductProvider, ProductConsumer}
-
